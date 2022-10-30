@@ -1,28 +1,21 @@
-
-
 <h2>Por Pais</h2>
 <hr>
 
 <div class="row">
   <div class="col">
     <form (ngSubmit)="buscar()" autocomplete="false">
-      <input
-             type="text"
-             name="termino"
-             class="form-control"
-             [(ngModel)]="termino"
-             placeholder="Buscar país..."/>
+      <input type="text" name="termino" class="form-control" [(ngModel)]="termino" placeholder="Buscar país..." />
     </form>
   </div>
 </div>
 
 <hr>
 
-<div class="alert alert-danger">
-  No se encontró nada con el termino AMSDAF
+<div *ngIf="hayError" class="alert alert-danger">
+  No se encontró nada con el termino {{termino}}
 </div>
 
-<div class="row">
+<div *ngIf="!hayError" class="row">
   <div class="col">
 
     <table class="table table-hover">
