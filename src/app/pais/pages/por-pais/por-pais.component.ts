@@ -10,24 +10,28 @@ import { PaisService } from '../../services/pais.service';
 export class PorPaisComponent {
   termino: string = '';
   hayError: boolean = false;
-  paises:Country[] = [];
+  paises: Country[] = [];
 
-  constructor(private paisService: PaisService) {}
+  constructor(private paisService: PaisService) { }
 
-  buscar(termino:string){
+  buscar(termino: string) {
     this.hayError = false;
     this.termino = termino;
-    
+
     this.paisService.buscarPais(this.termino).subscribe({
-      next: (paises) =>{
+      next: (paises) => {
         console.log(paises);
         this.paises = paises;
-      } ,
+      },
       error: (err) => {
-       this.hayError = true;
-       this.paises = [];
+        this.hayError = true;
+        this.paises = [];
       },
     });
+  }
+
+  sugerencias(termino: string) {
+    this.hayError = false;
   }
 
 }
