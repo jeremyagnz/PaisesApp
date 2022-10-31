@@ -1,1 +1,51 @@
-<p>ver-pais works!</p>
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+  Espere por favor...
+</div>
+
+
+
+<ng-template #divPais>
+
+  <div class="row">
+    <div class="col-12">
+      <h1>País: <small>{{ pais[0].name.common }}</small></h1>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img [src]="pais[0].flags.svg" class="img-thumbnail" />
+    </div>
+    <div class="col">
+      <h3>Información</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Población</strong> {{ pais[0].population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Código</strong> {{ pais[0].area }}
+        </li>
+        <li class="list-group-item">
+          <strong>Continente</strong> {{ pais[0].continents }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+
+        <span class="badge bg-primary mr-2"> {{pais[0].continents}} </span>
+        <span class="badge bg-primary "> {{pais[0].continents}} </span>
+
+
+    </div>
+  </div>
+
+
+
+
+</ng-template>
