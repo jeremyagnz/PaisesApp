@@ -14,6 +14,7 @@ export interface Country {
   capital:      string[];
   altSpellings: string[];
   region:       string;
+  regionalbloc:string;
   subregion:    string;
   languages:    Languages;
   translations: { [key: string]: Translation };
